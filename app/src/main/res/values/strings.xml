@@ -3,4 +3,9 @@
     <string name="movie_catalog">Movie Catalog</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="title">Shang-Chi and the Legend of the Ten Rings</string>
+    <string name="release_date">2021 - 07 - 28</string>
+    <string name="release">Release Date :</string>
+    <string name="popularity">Popularity :</string>
+    <string name="pop">2035.964</string>
+    <string name="vote_average">Vote Average :</string>
 </resources>
