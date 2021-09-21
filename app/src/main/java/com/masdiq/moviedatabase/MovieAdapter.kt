@@ -20,8 +20,8 @@ class MovieAdapter(
                 .into(itemView.movie_poster)
             itemView.movie_title.text = movie.title
             itemView.movie_release_date.text = movie.release
-            itemView.movie_popularity.text = movie.popularity.toString()
-            itemView.movie_rating.text = movie.voteAverage.toString()
+            itemView.movie_popularity.text = movie.popularity
+            itemView.movie_vote.text = movie.voteAverage
         }
     }
 
@@ -34,6 +34,6 @@ class MovieAdapter(
     override fun getItemCount(): Int = movies.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bindMovie(movies.get(position))
+        holder.bindMovie(movies[position])
     }
 }
