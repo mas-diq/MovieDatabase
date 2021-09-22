@@ -18,12 +18,18 @@ data class Movie(
     @SerializedName("release_date")
     var release: String? = "",
 
-    @field:SerializedName("popularity")
+    @SerializedName("popularity")
     var popularity: String? = "",
 
-    @field:SerializedName("vote_average")
-    var voteAverage: String? = ""
+    @SerializedName("vote_average")
+    var voteAverage: String? = "",
+
+    @SerializedName("vote_count")
+    var voteCount: String? = "",
+
+    @SerializedName("overview")
+    var overview: String? = ""
 
 ) : Parcelable {
-    constructor() : this("", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "", "")
 }

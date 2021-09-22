@@ -22,9 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         rv_movies_list.layoutManager = LinearLayoutManager(this)
         getMovieData { movies: List<Movie> ->
-            rv_movies_list.adapter = MovieAdapter(movies)
             movieAdapter = MovieAdapter(movies)
-
+            rv_movies_list.adapter = movieAdapter
             // Move with intent
             movieAdapter.onClickItem = {
                 val move = Intent(this, DetailActivity::class.java)

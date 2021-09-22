@@ -32,13 +32,15 @@ class MovieAdapter(
             .into(holder.image)
         holder.title.text = item.title
         holder.release.text = item.release
-        holder.vote.text = item.voteAverage
+        holder.popularity.text = item.popularity + " Peoples"
+        holder.vote.text = item.voteAverage + " Out of 10"
     }
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image = view.movie_poster!!
         val title = view.movie_title!!
         val release = view.movie_release_date!!
+        val popularity = view.movie_popularity!!
         val vote = view.movie_vote!!
 
         init {

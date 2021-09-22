@@ -10,7 +10,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="12dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,15 +21,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="center"
                 android:text="@string/movie_catalog"
-                android:textColor="@color/white"
+                android:textColor="@color/yellow"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -42,14 +48,16 @@
                 android:gravity="center"
                 android:text="@string/popular_movies"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 tools:ignore="HardcodedText" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_movies_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
                 tools:listitem="@layout/movie_item" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

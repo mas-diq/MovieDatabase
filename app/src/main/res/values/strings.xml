@@ -9,4 +9,7 @@
     <string name="pop">2035.964</string>
     <string name="vote_average">Vote Average :</string>
     <string name="back">Back</string>
+    <string name="vote_count">Vote Count :</string>
+    <string name="Overview">Overview</string>
+    <string name="overview">Lorem Ipsum Dolor sit Amet</string>
 </resources>

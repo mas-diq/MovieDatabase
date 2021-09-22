@@ -1,182 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pale_black"
-    android:orientation="horizontal"
-    android:padding="12dp">
+    android:background="@color/pale_black">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="24dp"
+        android:background="@color/pale_black"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ic_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ic_back"
+                app:layout_constraintTop_toTopOf="@+id/ic_back" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/ic_back"
+            android:id="@+id/movie_poster_detail"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="2"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_back"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/movie_title_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:maxLines="2"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movie_poster_detail" />
+
+        <ImageView
+            android:id="@+id/iv_date"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/movie_title_detail"
+            app:srcCompat="@drawable/ic_calendar"
             tools:ignore="ContentDescription" />
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/back"
+            android:text="@string/release"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ic_back"
-            app:layout_constraintTop_toTopOf="@+id/ic_back" />
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_date"
+            app:layout_constraintStart_toEndOf="@+id/iv_date"
+            app:layout_constraintTop_toTopOf="@+id/iv_date" />
+
+        <TextView
+            android:id="@+id/movie_release_date_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/release_date"
+            android:textColor="@color/yellow"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintStart_toEndOf="@+id/tv_date"
+            app:layout_constraintTop_toTopOf="@+id/tv_date" />
+
+        <ImageView
+            android:id="@+id/iv_popularity"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_date"
+            app:srcCompat="@drawable/ic_user"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/popularity"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_popularity"
+            app:layout_constraintStart_toEndOf="@+id/iv_date"
+            app:layout_constraintTop_toTopOf="@+id/iv_popularity" />
+
+        <TextView
+            android:id="@+id/movie_popularity_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/pop"
+            android:textColor="@color/yellow"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_popularity"
+            app:layout_constraintStart_toEndOf="@+id/tv_popularity"
+            app:layout_constraintTop_toTopOf="@+id/tv_popularity" />
+
+        <ImageView
+            android:id="@+id/iv_rating"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_popularity"
+            app:srcCompat="@drawable/ic_smile"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/vote_average"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_rating"
+            app:layout_constraintStart_toEndOf="@+id/iv_date"
+            app:layout_constraintTop_toTopOf="@+id/iv_rating" />
+
+        <TextView
+            android:id="@+id/movie_vote_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/pop"
+            android:textColor="@color/yellow"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rating"
+            app:layout_constraintStart_toEndOf="@+id/tv_rating"
+            app:layout_constraintTop_toTopOf="@+id/tv_rating" />
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_rating"
+            app:srcCompat="@drawable/ic_like"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/vote_count"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_like"
+            app:layout_constraintStart_toEndOf="@+id/iv_date"
+            app:layout_constraintTop_toTopOf="@+id/iv_like" />
+
+        <TextView
+            android:id="@+id/movie_vote_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/pop"
+            android:textColor="@color/yellow"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_like"
+            app:layout_constraintStart_toEndOf="@+id/tv_like"
+            app:layout_constraintTop_toTopOf="@+id/tv_like" />
+
+        <TextView
+            android:id="@+id/tv_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/Overview"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_like" />
+
+        <TextView
+            android:id="@+id/tv_overview_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:justificationMode="inter_word"
+            android:text="@string/overview"
+            android:textColor="@color/yellow"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_overview"
+            tools:targetApi="o" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/movie_poster_detail"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="2"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/movie_title_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:maxLines="2"
-        android:text="@string/title"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_poster_detail" />
-
-    <ImageView
-        android:id="@+id/iv_date"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_title_detail"
-        app:srcCompat="@drawable/ic_calendar"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/release"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_date"
-        app:layout_constraintStart_toEndOf="@+id/iv_date"
-        app:layout_constraintTop_toTopOf="@+id/iv_date" />
-
-    <TextView
-        android:id="@+id/movie_release_date_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/release_date"
-        android:textColor="@color/yellow"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_date"
-        app:layout_constraintStart_toEndOf="@+id/tv_date"
-        app:layout_constraintTop_toTopOf="@+id/tv_date" />
-
-    <ImageView
-        android:id="@+id/iv_popularity"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_date"
-        app:srcCompat="@drawable/ic_user"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/tv_popularity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/popularity"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_popularity"
-        app:layout_constraintStart_toEndOf="@+id/iv_date"
-        app:layout_constraintTop_toTopOf="@+id/iv_popularity" />
-
-    <TextView
-        android:id="@+id/movie_popularity_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/pop"
-        android:textColor="@color/yellow"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_popularity"
-        app:layout_constraintStart_toEndOf="@+id/tv_popularity"
-        app:layout_constraintTop_toTopOf="@+id/tv_popularity" />
-
-    <ImageView
-        android:id="@+id/iv_rating"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_popularity"
-        app:srcCompat="@drawable/ic_smile"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/tv_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="@string/vote_average"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_rating"
-        app:layout_constraintStart_toEndOf="@+id/iv_date"
-        app:layout_constraintTop_toTopOf="@+id/iv_rating" />
-
-    <TextView
-        android:id="@+id/movie_vote_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/pop"
-        android:textColor="@color/yellow"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_rating"
-        app:layout_constraintStart_toEndOf="@+id/tv_rating"
-        app:layout_constraintTop_toTopOf="@+id/tv_rating" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
