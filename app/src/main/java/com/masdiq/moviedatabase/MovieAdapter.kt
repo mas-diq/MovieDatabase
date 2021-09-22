@@ -19,9 +19,6 @@ class MovieAdapter(
         val listView =
             LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
         return MovieViewHolder(listView)
-//        return MovieViewHolder(
-//            LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-//        )
     }
 
     override fun getItemCount(): Int = movies.size
@@ -43,5 +40,11 @@ class MovieAdapter(
         val title = view.movie_title!!
         val release = view.movie_release_date!!
         val vote = view.movie_vote!!
+
+        init {
+            itemView.setOnClickListener {
+                onClickItem?.invoke(movies[adapterPosition])
+            }
+        }
     }
 }
