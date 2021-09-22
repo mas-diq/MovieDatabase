@@ -5,35 +5,43 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.masdiq.moviedatabase.models.Movie
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter(
-    private val movies: List<Movie>
+    private val movies: List<Movie>,
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val IMAGE_BASE = "https://image.tmdb.org/t/p/w500/"
-        fun bindMovie(movie: Movie) {
-            Glide.with(itemView)
-                .load(IMAGE_BASE + movie.poster)
-                .into(itemView.movie_poster)
-            itemView.movie_title.text = movie.title
-            itemView.movie_release_date.text = movie.release
-            itemView.movie_popularity.text = movie.popularity
-            itemView.movie_vote.text = movie.voteAverage
-        }
-    }
+    var onClickItem: ((Movie) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(
+        val listView =
             LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-        )
+        return MovieViewHolder(listView)
+//        return MovieViewHolder(
+//            LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+//        )
     }
 
     override fun getItemCount(): Int = movies.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bindMovie(movies[position])
+        val IMAGE_BASE = "https://image.tmdb.org/t/p/w500/"
+        val item = movies[position]
+        Glide.with(holder.itemView.context)
+            .load(IMAGE_BASE + item.poster)
+            .apply(RequestOptions())
+            .into(holder.image)
+        holder.title.text = item.title
+        holder.release.text = item.release
+        holder.vote.text = item.voteAverage
+    }
+
+    inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val image = view.movie_poster!!
+        val title = view.movie_title!!
+        val release = view.movie_release_date!!
+        val vote = view.movie_vote!!
     }
 }

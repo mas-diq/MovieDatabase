@@ -1,5 +1,6 @@
 package com.masdiq.moviedatabase
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,15 +13,26 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var movieAdapter: MovieAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         rv_movies_list.layoutManager = LinearLayoutManager(this)
-        rv_movies_list.setHasFixedSize(true)
         getMovieData { movies: List<Movie> ->
             rv_movies_list.adapter = MovieAdapter(movies)
+            movieAdapter = MovieAdapter(movies)
+
+            // Move with intent
+            movieAdapter.onClickItem = {
+                val move = Intent(this, DetailActivity::class.java)
+                move.putExtra(DetailActivity.EXTRA, it)
+                startActivity(move)
+            }
         }
+        rv_movies_list.setHasFixedSize(true)
     }
 
     private fun getMovieData(callback: (List<Movie>) -> Unit) {
